@@ -29,7 +29,7 @@
 
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                             <li role="presentation">
-                                <a role="menuitem" tabindex="-1" href="">
+                                <a role="menuitem" tabindex="-1" href="admin_logout">
                                     <span class="glyphicon glyphicon-off pull-right"></span>
                                     注销
                                 </a>

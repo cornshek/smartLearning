@@ -19,8 +19,8 @@ public interface LoginService {
     void add(Login login) throws Exception;
 
     /*
-     * 移除登录信息 同时会自动移除相关的学生信息
-     * @param id 登录id == 学生id*/
+     * 移除登录信息 同时会自动移除相关的学生/教师信息
+     * @param id 登录id == 学生/教师id*/
     void delete(Integer id);
 
     /*

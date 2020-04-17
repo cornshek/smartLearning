@@ -9,7 +9,7 @@
 <%@include file="../include/taglib.jsp"%>
 <html>
 <head>
-    <title>学生管理</title>
+    <title>教师管理</title>
 
     <link   href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -40,7 +40,7 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="row">
-                                <h1 class="col-md-5">学生管理</h1>
+                                <h1 class="col-md-5">教师管理</h1>
                                 <form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="admin_selectStudent" id="form1" method="post">
                                     <div class="input-group">
                                         <%--TODO 搜索栏功能，暂时不写--%>
@@ -48,8 +48,8 @@
                                         <span class="input-group-addon btn" id="sub">搜索</span>
                                     </div>
                                 </form>
-                                <button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='admin_addStudent'">
-                                    添加学生信息
+                                <button class="btn btn-default col-md-2" style="margin-top: 20px" onClick="location.href='admin_addTeacher'">
+                                    添加教师信息
                                     <sapn class="glyphicon glyphicon-plus"></sapn>
                                 </button>
                             </div>
@@ -58,7 +58,7 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>学号</th>
+                                <th>工号</th>
                                 <th>姓名</th>
                                 <th>性别</th>
                                 <th>出生日期</th>
@@ -67,7 +67,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach  items="${studentList}" var="item">
+                            <c:forEach  items="${teacherList}" var="item">
                                 <tr>
                                     <td>${item.id}</td>
                                     <td>${item.name}</td>
@@ -75,8 +75,8 @@
                                     <td><fmt:formatDate value="${item.birthday}" dateStyle="medium" /></td>
                                     <td><fmt:formatDate value="${item.registerTime}" dateStyle="medium" /></td>
                                     <td>
-                                        <button class="btn btn-default btn-xs btn-info" onClick="location.href='admin_editStudent?id=${item.id}'">修改</button>
-                                        <a class="btn btn-danger btn-xs" href="admin_deleteStudent?id=${item.id}" onclick="return checkConfirm()">删除</a>
+                                        <button class="btn btn-default btn-xs btn-info" onClick="location.href='admin_editTeacher?id=${item.id}'">修改</button>
+                                        <a class="btn btn-danger btn-xs" href="admin_deleteTeacher?id=${item.id}" onclick="return checkConfirm()">删除</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -114,7 +114,7 @@
 
     <script type="text/javascript">
         /*改变侧边栏当前选项卡样式*/
-        $("#nav li:nth-child(2)").addClass("active");
+        $("#nav li:nth-child(3)").addClass("active");
     </script>
 </body>
 </html>

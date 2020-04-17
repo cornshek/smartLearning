@@ -10,12 +10,11 @@
 <body>
 <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked" id="nav">
-        <li><a href="/admin_listCourse">课程管理<span class="glyphicon glyphicon-book pull-right"/></a></li>
-        <li><a href="/admin_listStudent">学生管理<span class="glyphicon glyphicon-user pull-right"/></a></li>
-        <li><a href=>教师管理<span class="glyphicon glyphicon-user pull-right"/></a></li>
-        <li><a href=>重置密码<sapn class="glyphicon glyphicon-repeat pull-right" /></a></li>
-        <li><a href=>修改密码<sapn class="glyphicon glyphicon-pencil pull-right" /></a></li>
-        <li><a href=>退出系统<sapn class="glyphicon glyphicon-log-out pull-right" /></a></li>
+        <li><a href="">课程管理<span class="glyphicon glyphicon-book pull-right"></span></a></li>
+        <li><a href="admin_listStudent">学生管理<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+        <li><a href="admin_listTeacher">教师管理<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+        <li><a href="admin_resetPassword">修改密码<span class="glyphicon glyphicon-pencil pull-right"></span></a></li>
+        <li><a href=>退出系统<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
     </ul>
 </div>
 </body>

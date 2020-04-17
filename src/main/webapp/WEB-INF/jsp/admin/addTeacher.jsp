@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>添加学生信息</title>
+    <title>添加教师信息</title>
 
     <link   href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -29,11 +29,11 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <div class="row">
-                            <h1 style="text-align: center;">添加学生信息</h1>
+                            <h1 style="text-align: center;">添加教师信息</h1>
                         </div>
                     </div>
                     <div class="panel-body">
-                        <form class="form-horizontal" action="admin_addStudent" id="editForm" method="post">
+                        <form class="form-horizontal" action="admin_addTeacher" id="editForm" method="post">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">姓名</label>
                                 <div class="col-sm-10">
@@ -76,7 +76,7 @@
 
 <script type="text/javascript">
     /*改变侧边栏当前选项卡样式*/
-    $("#nav li:nth-child(2)").addClass("active");
+    $("#nav li:nth-child(3)").addClass("active");
 </script>
 </body>
 </html>
