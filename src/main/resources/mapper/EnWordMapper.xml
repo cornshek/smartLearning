@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.shek.smartLearning.mapper.EnWordsMapper">
-  <resultMap id="BaseResultMap" type="org.shek.smartLearning.pojo.EnWords">
+<mapper namespace="org.shek.smartLearning.mapper.EnWordMapper">
+  <resultMap id="BaseResultMap" type="org.shek.smartLearning.pojo.EnWord">
+    <id column="id" jdbcType="INTEGER" property="id" />
     <result column="word" jdbcType="VARCHAR" property="word" />
     <result column="translation" jdbcType="VARCHAR" property="translation" />
   </resultMap>
@@ -35,16 +36,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    word, translation
+    id, word, translation
   </sql>
-  <select id="selectByExample" parameterType="org.shek.smartLearning.pojo.EnWordsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="org.shek.smartLearning.pojo.EnWordExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from enwords
+    from enword
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -52,12 +53,22 @@
       order by ${orderByClause}
     </if>
   </select>
-  <insert id="insert" parameterType="org.shek.smartLearning.pojo.EnWords">
-    insert into enwords (word, translation)
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from enword
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from enword
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.shek.smartLearning.pojo.EnWord" useGeneratedKeys="true">
+    insert into enword (word, translation)
     values (#{word,jdbcType=VARCHAR}, #{translation,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="org.shek.smartLearning.pojo.EnWords">
-    insert into enwords
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.shek.smartLearning.pojo.EnWord" useGeneratedKeys="true">
+    insert into enword
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="word != null">
         word,
@@ -75,4 +86,22 @@
       </if>
     </trim>
   </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.shek.smartLearning.pojo.EnWord">
+    update enword
+    <set>
+      <if test="word != null">
+        word = #{word,jdbcType=VARCHAR},
+      </if>
+      <if test="translation != null">
+        translation = #{translation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.shek.smartLearning.pojo.EnWord">
+    update enword
+    set word = #{word,jdbcType=VARCHAR},
+      translation = #{translation,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

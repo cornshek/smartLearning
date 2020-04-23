@@ -114,7 +114,7 @@
 
     <script type="text/javascript">
         /*改变侧边栏当前选项卡样式*/
-        $("#nav li:nth-child(3)").addClass("active");
+        $("#nav li:nth-child(2)").addClass("active");
     </script>
 </body>
 </html>

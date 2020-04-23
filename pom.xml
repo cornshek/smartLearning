@@ -26,7 +26,7 @@
 <!--    <junit.version>4.12</junit.version>-->
     <jstl.version>1.2</jstl.version>
 <!--    <jsqlparser.version>1.0</jsqlparser.version>-->
-<!--    <jackson.version>1.2.7</jackson.version>-->
+    <jackson.version>2.10.0</jackson.version>
     <servlet-api.version>3.1.0</servlet-api.version>
     <druid.version>1.1.21</druid.version>
     <log4j.version>2.12.1</log4j.version>
@@ -140,6 +140,13 @@
       <version>${pagehelper.version}</version>
     </dependency>
 
+    <!--处理json-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
     <!--jsqlparser-->
 <!--    <dependency>-->
 <!--      <groupId>com.github.jsqlparser</groupId>-->
@@ -241,5 +248,21 @@
         </configuration>
       </plugin>
     </plugins>
+
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.*</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*.*</include>
+        </includes>
+      </resource>
+    </resources>
+
   </build>
 </project>

@@ -46,12 +46,12 @@
 </head>
 <body>
 <%--顶栏--%>
-<jsp:include page="../include/admin/top.jsp"/>
+<jsp:include page="../include/student/top.jsp"/>
 
 <div class="container" id="content">
     <div class="row">
         <%--侧边栏--%>
-        <jsp:include page="../include/admin/menu.jsp"/>
+        <jsp:include page="../include/student/menu.jsp"/>
 
             <div class="col-md-10">
                 <div class="panel panel-default">

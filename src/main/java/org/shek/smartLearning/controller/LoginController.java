@@ -35,6 +35,12 @@ public class LoginController {
         if(subject.hasRole("admin")) {
             return "redirect:admin_listStudent";
         }
+        if (subject.hasRole(("student"))) {
+            return "redirect:student_listCourse";
+        }
+        if (subject.hasRole("teacher")) {
+            return "redirect:teacher_listCourse";
+        }
         return "";
     }
 }

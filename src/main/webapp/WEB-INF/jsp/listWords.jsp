@@ -22,10 +22,10 @@
 </head>
 <body>
 <table align="center" class="table-striped table-bordered table-hover table-condensed">
-    <c:forEach items="${enWordsList}" var="enWordsList">
+    <c:forEach items="${enWordList}" var="enWordList">
         <tr>
-            <td>${enWordsList.word}</td>
-            <td>${enWordsList.translation}</td>
+            <td>${enWordList.word}</td>
+            <td>${enWordList.translation}</td>
         </tr>
     </c:forEach>
 </table>

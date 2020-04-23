@@ -34,6 +34,6 @@ public class ResetPasswordController {
             login.setPassword(SHA1Utils.entryptPassword(password1));
             loginService.update(login);
         }
-        return "redirect:logout";
+        return "redirect:student_logout";
     }
 }
