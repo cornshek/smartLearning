@@ -31,7 +31,9 @@ public class TheoremServiceImpl implements TheoremService {
 
         List<Theorem> resultTheorem = new ArrayList<Theorem>();
         for (int i = 0; i < number; i++) {
-            resultTheorem.add(allTheorem.remove(new Random().nextInt(allTheorem.size())));
+            if(0 != allTheorem.size()){
+                resultTheorem.add(allTheorem.remove(new Random().nextInt(allTheorem.size())));
+            }
         }
         return resultTheorem;
     }

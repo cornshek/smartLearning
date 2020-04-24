@@ -260,6 +260,10 @@
                 again[i].style.display = "inline";
             }
 
+            /*将results传递到jsp页面*/
+            $("#results").attr("value", results);
+            $("#results").trigger("input");
+
             return false;
 
         });

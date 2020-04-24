@@ -2,21 +2,22 @@ package org.shek.smartLearning.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.shek.smartLearning.pojo.EnWord;
+import org.shek.smartLearning.pojo.Login;
+import org.shek.smartLearning.pojo.Mastery;
 import org.shek.smartLearning.pojo.Theorem;
-import org.shek.smartLearning.service.EnWordService;
-import org.shek.smartLearning.service.StudentService;
-import org.shek.smartLearning.service.TeacherService;
-import org.shek.smartLearning.service.TheoremService;
+import org.shek.smartLearning.service.*;
 import org.shek.smartLearning.util.Problem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("")
@@ -29,6 +30,10 @@ public class StudentController {
     EnWordService enWordService;
     @Autowired
     TheoremService theoremService;
+    @Autowired
+    MasteryService masteryService;
+    @Autowired
+    LoginService loginService;
 
     /*---------------------------------------知识点记忆 Start*/
 
@@ -113,13 +118,15 @@ public class StudentController {
         /*将List<Problem> questions 转为json字符串*/
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonString = objectMapper.writeValueAsString(questions);
-        System.out.println(jsonString);
+//        System.out.println(jsonString);
 
         /*将json字符串传递到前台*/
         model.addAttribute("jsonString", jsonString);
 
         return "student/memorizeTheorem";
     }
+
+
 
     /*---------------------------------------知识点记忆 End*/
 

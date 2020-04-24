@@ -148,10 +148,12 @@
 
 .main-quiz-holder .notice {
     margin-top: -30px;
-    color: #717171;
-    position: absolute;
-    right: 52px;
-    bottom: 70px;
+    color: red;
+    position: relative;
+    float: right;
+    right: 25px;
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .main-quiz-holder .slide-container .prev {

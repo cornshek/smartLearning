@@ -84,7 +84,16 @@
 <!--            <property name="useActualColumnNames" value="false"/>-->
 <!--        </table>-->
 
-        <table tableName="theorem" domainObjectName="Theorem"
+<!--        <table tableName="theorem" domainObjectName="Theorem"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="true"-->
+<!--               selectByExampleQueryId="false">-->
+<!--            <property name="my.isgen.usekeys" value="true"/>-->
+<!--            <property name="useActualColumnNames" value="false"/>-->
+<!--            <generatedKey column="id" sqlStatement="JDBC"/>-->
+<!--        </table>-->
+
+        <table tableName="mastery" domainObjectName="Mastery"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false">
