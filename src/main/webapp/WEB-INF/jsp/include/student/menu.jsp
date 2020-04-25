@@ -11,7 +11,7 @@
 <div class="col-md-2">
     <ul class="nav nav-pills nav-stacked" id="nav">
         <li><a href="student_listCourse">知识点记忆<span class="glyphicon glyphicon-user pull-right"></span></a></li>
-        <li><a href="admin_listTeacher">教师管理<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+        <li><a href="admin_listTeacher">实战<span class="glyphicon glyphicon-user pull-right"></span></a></li>
         <li><a href="student_resetPassword">修改密码<span class="glyphicon glyphicon-pencil pull-right"></span></a></li>
         <li><a href="student_logout">退出系统<span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
     </ul>

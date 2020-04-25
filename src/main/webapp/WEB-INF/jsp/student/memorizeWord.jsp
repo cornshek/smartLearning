@@ -40,6 +40,30 @@
                 questions: init.questions
             });
         });
+
+        /*Ajax 计算掌握度*/
+        var xmlHttp;
+        function check(){
+            var results = document.getElementById("results").value;
+            var url = "calMastery";
+
+            xmlHttp =new XMLHttpRequest();
+            //响应函数
+            xmlHttp.onreadystatechange=checkResult;
+            //设置访问的页面
+            xmlHttp.open("POST",url,true);
+            //因为是POST 需要设置消息头
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //执行访问，传递参数
+            xmlHttp.send("results=" + results + "&questions=" + JSON.stringify(questions) + "&subjectName=英文单词");
+        }
+
+        function checkResult(){
+            if (xmlHttp.readyState===4 && xmlHttp.status===200){
+                var callback = JSON.parse(xmlHttp.responseText);
+                document.getElementById('finish').innerHTML = callback.result;
+            }
+        }
     </script>
 
 </head>
@@ -78,6 +102,12 @@
                             <button class="btn btn-default btn-xs btn-info" style="padding: 1px 53px; font-size: 50px; background-color: #555; border-color: white" onClick="location.href='student_memorizeWord?number=10'">再来10个
                             <button class="btn btn-default btn-xs btn-info" style="padding: 1px 54px; font-size: 50px; background-color: #555; border-color: white" onClick="location.href='student_memorizeWord?number=20'">再来20个
                             <%--用不闭合标签的方式解决按钮间空隙的问题--%>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; background-color: #555">
+                            <input oninput="check()" type="hidden" id="results">
+                            <span id="finish" style="color: white; font-size: 50px; font-weight: 600;"></span>
                         </td>
                     </tr>
                 </table>

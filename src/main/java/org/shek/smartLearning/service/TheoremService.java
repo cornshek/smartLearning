@@ -7,6 +7,6 @@ import java.util.List;
 public interface TheoremService {
     void add(Theorem theorem);
 
-    /*根据参数number随机选择*/
-    List<Theorem> listRandom(Integer number);
+    /*根据参数number随机选择 权重：masteryValue*/
+    List<Theorem> listRandomWithMastery(Integer number);
 }

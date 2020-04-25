@@ -35,6 +35,16 @@ public class StudentController {
     @Autowired
     LoginService loginService;
 
+    /*测试*/
+    @RequestMapping("test")
+    public String test() {
+        List<Theorem> theorems = theoremService.listRandomWithMastery(5);
+        for (Theorem theorem : theorems) {
+            System.out.println(theorem);
+        }
+        return "";
+    }
+
     /*---------------------------------------知识点记忆 Start*/
 
     /*课程列表*/
@@ -87,8 +97,8 @@ public class StudentController {
     /*记忆定理*/
     @RequestMapping("student_memorizeTheorem")
     public String memorizeTheorem(Model model, Integer number) throws JsonProcessingException {
-        /*随机选择x(number)个单词作为题目*/
-        List<Theorem> theorems = theoremService.listRandom(number);
+        /*Mastery作为权重，随机选择x(number)个单词作为题目*/
+        List<Theorem> theorems = theoremService.listRandomWithMastery(number);
 
         List<Problem> questions = new ArrayList<>();
 
