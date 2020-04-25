@@ -9,8 +9,8 @@ public interface MasteryService {
     /*根据知识点名称、用户ID查询*/
     Mastery findByKnowledge(String knowledge, Integer id);
 
-    /*查询全部*/
-    List<Mastery> list();
+    /*根据学生查询*/
+    List<Mastery> findByStudent(Integer studentId);
 
     /*添加*/
     void add(Mastery mastery);

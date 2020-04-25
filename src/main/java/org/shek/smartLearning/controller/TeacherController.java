@@ -181,9 +181,9 @@ public class TeacherController {
 
     /*查看掌握程度*/
     @RequestMapping("teacher_listMastery")
-    public String listMastery(Model model, Page page) {
+    public String listMastery(Model model, Page page, Integer studentId) {
         PageHelper.offsetPage(page.getStart(), page.getCount());
-        List<Mastery> masteryList = masteryService.list();
+        List<Mastery> masteryList = masteryService.findByStudent(studentId);
         int total = (int) new PageInfo<>(masteryList).getTotal();
         page.setTotal(total);
 

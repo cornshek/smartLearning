@@ -59,7 +59,7 @@
                             <td>${student.name}</td>
                             <td>
                                 <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listMastery'">查看掌握程度
+                                        onClick="location.href='teacher_listMastery?studentId=${student.id}'">查看掌握程度
                                 </button>
                             </td>
                         </tr>
