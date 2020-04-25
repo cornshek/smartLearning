@@ -9,78 +9,89 @@
 <%@include file="../include/taglib.jsp" %>
 <html>
 <head>
-    <title>课程列表</title>
+    <title>习题实战</title>
 
     <link href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet" type="text/css">
 
+    <%--引入答题插件css--%>
+    <link href="css/answer/style.css" rel="stylesheet" type="text/css"/>
+
+    <style type="text/css">
+        .demo{}
+    </style>
+
     <script src="js/jquery/2.0.0/jquery.min.js"></script>
     <script src="js/bootstrap/3.3.6/bootstrap.js"></script>
+
+    <%--引入答题插件--%>
+    <script type="text/javascript" src="js/answer/quiz.js"></script>
+
+
+    <script>
+        var questions = ${jsonString};
+        // var init={'questions': [
+        //         {'question':'我是单词','answers':['我是中文','我是中文','我是中文'],'correctAnswer':1},
+        //         {'question':'我是单词','answers':['我是中文','我是中文','我是中文','我是中文'],'correctAnswer':1}
+        //     ]};
+        var init={'questions': questions};
+
+        $(function(){
+            $('#quiz-container').jquizzy({
+                questions: init.questions
+            });
+        });
+
+        /*Ajax 计算掌握度*/
+        var xmlHttp;
+        function check(){
+            var results = document.getElementById("results").value;
+            var url = "calMastery";
+
+            xmlHttp =new XMLHttpRequest();
+            //响应函数
+            xmlHttp.onreadystatechange=checkResult;
+            //设置访问的页面
+            xmlHttp.open("POST",url,true);
+            //因为是POST 需要设置消息头
+            xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //执行访问，传递参数
+            xmlHttp.send("results=" + results + "&questions=" + JSON.stringify(questions));
+        }
+
+        function checkResult(){
+            if (xmlHttp.readyState===4 && xmlHttp.status===200){
+                var callback = JSON.parse(xmlHttp.responseText);
+                document.getElementById('finish').innerHTML = callback.result;
+            }
+        }
+    </script>
 
 </head>
 <body>
 
 
 <%--顶栏--%>
-<jsp:include page="../include/teacher/top.jsp"/>
+<jsp:include page="../include/student/top.jsp"/>
 
 <%--主体--%>
 <div class="container" id="content">
     <div class="row">
         <%--侧边栏--%>
-        <jsp:include page="../include/teacher/menu.jsp"/>
+        <jsp:include page="../include/student/menu.jsp"/>
 
         <div class="col-md-10">
 
             <div class="panel panel-default">
+
                 <div class="panel-heading">
                     <div class="row">
-                        <h1 class="col-md-5">课程列表</h1>
+                        <h1 class="col-md-5">目前没有习题</h1>
                     </div>
                 </div>
 
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>学科</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>英语单词</td>
-                            <td>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href=''">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listWord'">查看知识点
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>数学公式/定理</td>
-                            <td>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_addTheorem'">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listTheorem'">查看知识点
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>古诗</td>
-                            <td>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_addPoetry'">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listPoetry'">查看知识点
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+
+
 
                 <%--TODO 分页暂时不做--%>
 <%--                <div class="panel-footer">--%>
@@ -122,7 +133,7 @@
 
 <script type="text/javascript">
     /*改变侧边栏当前选项卡样式*/
-    $("#nav li:nth-child(1)").addClass("active");
+    $("#nav li:nth-child(2)").addClass("active");
 </script>
 </body>
 </html>

@@ -7,7 +7,7 @@ public class Page {
     //分类的分页查询中没有使用这个属性
     private String param;
 
-    private static final int defaultCount = 100;
+    private static final int defaultCount = 30;
 
     public Page() {
         count = defaultCount;

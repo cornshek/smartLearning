@@ -9,6 +9,9 @@ public interface StudentService {
     * 查询所有学生信息*/
     List<Student> list();
 
+    /*根据名字模糊查询*/
+    List<Student> findByName(String name);
+
     /*查询单个学生信息*/
     Student findById(Integer id);
 

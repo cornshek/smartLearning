@@ -31,6 +31,13 @@ public class MasteryServiceImpl implements MasteryService {
     }
 
     @Override
+    public List<Mastery> list() {
+        MasteryExample example = new MasteryExample();
+        example.setOrderByClause("value desc");
+        return masteryMapper.selectByExample(example);
+    }
+
+    @Override
     public void add(Mastery mastery) {
         masteryMapper.insert(mastery);
     }

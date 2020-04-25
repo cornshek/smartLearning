@@ -31,8 +31,21 @@ public class TheoremServiceImpl implements TheoremService {
     }
 
     @Override
-    public List<Theorem> listRandomWithMastery(Integer number) {
+    public List<Theorem> list() {
+        TheoremExample example = new TheoremExample();
+        return theoremMapper.selectByExample(example);
+    }
 
+    @Override
+    public List<Theorem> findByName(String name) {
+        TheoremExample example = new TheoremExample();
+        example.createCriteria()
+                .andNameLike("%" + name + "%");
+        return theoremMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<Theorem> listRandomWithMastery(Integer number) {
         /*
          * 获取当前用户信息 Login login*/
         Subject subject = SecurityUtils.getSubject();
@@ -62,16 +75,19 @@ public class TheoremServiceImpl implements TheoremService {
         *在0~masterySum之间随机取整数值，加在masteryValue上
         *根据masteryValue排序allTheorem*/
         for (Theorem theorem : allTheorem) {
-            /*区分masterySum的正负处理*/
+            /*区分masterySum的正负处理，为0时不处理*/
             if (masterySum > 0) {
                 theorem.setMasteryValue(theorem.getMasteryValue() + new Random().nextInt(masterySum));
-            } else {
+            } else if (masterySum < 0){
                 theorem.setMasteryValue(theorem.getMasteryValue() - new Random().nextInt(-masterySum));
             }
         }
         Collections.sort(allTheorem);
 
-        return allTheorem.subList(0, number);
+        if (allTheorem.size() >= number) {
+            return allTheorem.subList(0, number);
+        }
+        return allTheorem;
     }
 
 }

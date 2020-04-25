@@ -9,7 +9,7 @@
 <%@include file="../include/taglib.jsp" %>
 <html>
 <head>
-    <title>课程列表</title>
+    <title>数学定理</title>
 
     <link href="css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet" type="text/css">
 
@@ -34,51 +34,35 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <h1 class="col-md-5">课程列表</h1>
+                        <h1 class="col-md-5">定理列表</h1>
+                        <form class="bs-example bs-example-form col-md-5" role="form" style="margin: 20px 0 10px 0;" action="teacher_selectTheorem" id="form1" method="post">
+                            <div class="input-group">
+                                <%--搜索栏功能--%>
+                                <input type="text" class="form-control" placeholder="请输入定理名称" name="name">
+                                <span class="input-group-addon btn" id="sub" onclick="$('#form1').submit">搜索</span>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <table class="table table-bordered">
                     <thead>
                     <tr>
-                        <th>学科</th>
+                        <th>定理名称</th>
                         <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
+                    <c:forEach items="${theorems}" var="theorem">
                         <tr>
-                            <td>英语单词</td>
+                            <td>${theorem.name}</td>
                             <td>
                                 <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href=''">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listWord'">查看知识点
+                                        onClick="location.href='teacher_addTest?knowledge=${theorem.name}'">添加试题
                                 </button>
                             </td>
                         </tr>
-                        <tr>
-                            <td>数学公式/定理</td>
-                            <td>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_addTheorem'">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listTheorem'">查看知识点
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>古诗</td>
-                            <td>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_addPoetry'">添加知识点
-                                </button>
-                                <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='teacher_listPoetry'">查看知识点
-                                </button>
-                            </td>
-                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
 

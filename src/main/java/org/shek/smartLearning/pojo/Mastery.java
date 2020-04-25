@@ -3,8 +3,6 @@ package org.shek.smartLearning.pojo;
 public class Mastery {
     private Integer id;
 
-    private String subject;
-
     private String knowledge;
 
     private Integer value;
@@ -17,14 +15,6 @@ public class Mastery {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject == null ? null : subject.trim();
     }
 
     public String getKnowledge() {

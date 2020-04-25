@@ -54,10 +54,9 @@ public class MasteryController {
          * 遍历List<Problem> problems
          * 判断表中是否有该知识点(question 表中为 knowledge)*/
         for (int i = 0; i < problems.size(); i++) {
-            if (null == masteryService.findByKnowledge(problems.get(i).getQuestion(), login.getId())) {
+            if (null == masteryService.findByKnowledge(problems.get(i).getKnowledge(), login.getId())) {
                 /*表中无此知识点，添加*/
                 Mastery mastery = new Mastery();
-                mastery.setSubject(subjectName);
                 mastery.setKnowledge(problems.get(i).getQuestion());
                 mastery.setValue(0);
                 mastery.setStudentId(login.getId());
@@ -71,7 +70,7 @@ public class MasteryController {
                 masteryService.add(mastery);
             } else {
                 /*表中有此知识点，只需判断作答，调整掌握度*/
-                Mastery mastery = masteryService.findByKnowledge(problems.get(i).getQuestion(), login.getId());
+                Mastery mastery = masteryService.findByKnowledge(problems.get(i).getKnowledge(), login.getId());
                 if ("true".equals(subResult[i])) {
                     mastery.setValue(mastery.getValue() + 1);
                 } else {
@@ -82,7 +81,7 @@ public class MasteryController {
         }
 
         Map<String,String> map = new HashMap<String, String>();
-        map.put("result", "本次学习结束，已更新知识点掌握度");
+        map.put("result", "已更新知识点掌握度");
         return map;
     }
 

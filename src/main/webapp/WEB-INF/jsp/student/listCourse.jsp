@@ -78,13 +78,13 @@
                             <td>古诗</td>
                             <td>
                                 <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='student_memorizeWord?number=5'">伍
+                                        onClick="location.href='student_memorizePoetry?number=5'">伍
                                 </button>
                                 <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='student_memorizeWord?number=10'">拾
+                                        onClick="location.href='student_memorizePoetry?number=10'">拾
                                 </button>
                                 <button class="btn btn-default btn-xs btn-info"
-                                        onClick="location.href='student_memorizeWord?number=20'">贰拾
+                                        onClick="location.href='student_memorizePoetry?number=20'">贰拾
                                 </button>
                             </td>
                         </tr>

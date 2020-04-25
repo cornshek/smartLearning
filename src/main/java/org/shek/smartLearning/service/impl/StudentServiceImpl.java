@@ -18,7 +18,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Student> list() {
         StudentExample example = new StudentExample();
-        example.createCriteria();
+        return studentMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<Student> findByName(String name) {
+        StudentExample example = new StudentExample();
+        example.createCriteria()
+                .andNameLike("%" + name + "%");
         return studentMapper.selectByExample(example);
     }
 

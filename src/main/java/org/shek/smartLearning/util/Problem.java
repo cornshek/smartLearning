@@ -7,6 +7,15 @@ public class Problem {
     private String question;
     private List<String> answers = new ArrayList<>();
     private int correctAnswer;
+    private String knowledge;
+
+    public String getKnowledge() {
+        return knowledge;
+    }
+
+    public void setKnowledge(String knowledge) {
+        this.knowledge = knowledge;
+    }
 
     public String getQuestion() {
         return question;

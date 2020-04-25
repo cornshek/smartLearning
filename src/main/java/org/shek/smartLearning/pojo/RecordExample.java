@@ -3,14 +3,14 @@ package org.shek.smartLearning.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MasteryExample {
+public class RecordExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public MasteryExample() {
+    public RecordExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -164,136 +164,6 @@ public class MasteryExample {
             return (Criteria) this;
         }
 
-        public Criteria andKnowledgeIsNull() {
-            addCriterion("knowledge is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeIsNotNull() {
-            addCriterion("knowledge is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeEqualTo(String value) {
-            addCriterion("knowledge =", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeNotEqualTo(String value) {
-            addCriterion("knowledge <>", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeGreaterThan(String value) {
-            addCriterion("knowledge >", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeGreaterThanOrEqualTo(String value) {
-            addCriterion("knowledge >=", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeLessThan(String value) {
-            addCriterion("knowledge <", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeLessThanOrEqualTo(String value) {
-            addCriterion("knowledge <=", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeLike(String value) {
-            addCriterion("knowledge like", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeNotLike(String value) {
-            addCriterion("knowledge not like", value, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeIn(List<String> values) {
-            addCriterion("knowledge in", values, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeNotIn(List<String> values) {
-            addCriterion("knowledge not in", values, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeBetween(String value1, String value2) {
-            addCriterion("knowledge between", value1, value2, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andKnowledgeNotBetween(String value1, String value2) {
-            addCriterion("knowledge not between", value1, value2, "knowledge");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueIsNull() {
-            addCriterion("value is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueIsNotNull() {
-            addCriterion("value is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueEqualTo(Integer value) {
-            addCriterion("value =", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueNotEqualTo(Integer value) {
-            addCriterion("value <>", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueGreaterThan(Integer value) {
-            addCriterion("value >", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueGreaterThanOrEqualTo(Integer value) {
-            addCriterion("value >=", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueLessThan(Integer value) {
-            addCriterion("value <", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueLessThanOrEqualTo(Integer value) {
-            addCriterion("value <=", value, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueIn(List<Integer> values) {
-            addCriterion("value in", values, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueNotIn(List<Integer> values) {
-            addCriterion("value not in", values, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueBetween(Integer value1, Integer value2) {
-            addCriterion("value between", value1, value2, "value");
-            return (Criteria) this;
-        }
-
-        public Criteria andValueNotBetween(Integer value1, Integer value2) {
-            addCriterion("value not between", value1, value2, "value");
-            return (Criteria) this;
-        }
-
         public Criteria andStudentIdIsNull() {
             addCriterion("student_id is null");
             return (Criteria) this;
@@ -351,6 +221,66 @@ public class MasteryExample {
 
         public Criteria andStudentIdNotBetween(Integer value1, Integer value2) {
             addCriterion("student_id not between", value1, value2, "studentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdIsNull() {
+            addCriterion("test_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdIsNotNull() {
+            addCriterion("test_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdEqualTo(Integer value) {
+            addCriterion("test_id =", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotEqualTo(Integer value) {
+            addCriterion("test_id <>", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdGreaterThan(Integer value) {
+            addCriterion("test_id >", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("test_id >=", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdLessThan(Integer value) {
+            addCriterion("test_id <", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdLessThanOrEqualTo(Integer value) {
+            addCriterion("test_id <=", value, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdIn(List<Integer> values) {
+            addCriterion("test_id in", values, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotIn(List<Integer> values) {
+            addCriterion("test_id not in", values, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdBetween(Integer value1, Integer value2) {
+            addCriterion("test_id between", value1, value2, "testId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTestIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("test_id not between", value1, value2, "testId");
             return (Criteria) this;
         }
     }

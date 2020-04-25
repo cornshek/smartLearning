@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.shek.smartLearning.mapper.TestMapper">
+  <resultMap id="BaseResultMap" type="org.shek.smartLearning.pojo.Test">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="question" jdbcType="VARCHAR" property="question" />
+    <result column="answer" jdbcType="VARCHAR" property="answer" />
+    <result column="confusion1" jdbcType="VARCHAR" property="confusion1" />
+    <result column="confusion2" jdbcType="VARCHAR" property="confusion2" />
+    <result column="confusion3" jdbcType="VARCHAR" property="confusion3" />
+    <result column="record_id" jdbcType="INTEGER" property="recordId" />
+    <result column="knowledge" jdbcType="VARCHAR" property="knowledge" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, question, answer, confusion1, confusion2, confusion3, record_id, knowledge
+  </sql>
+  <select id="selectByExample" parameterType="org.shek.smartLearning.pojo.TestExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from test
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from test
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="org.shek.smartLearning.pojo.Test" useGeneratedKeys="true">
+    insert into test (question, answer, confusion1, 
+      confusion2, confusion3, record_id, 
+      knowledge)
+    values (#{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{confusion1,jdbcType=VARCHAR}, 
+      #{confusion2,jdbcType=VARCHAR}, #{confusion3,jdbcType=VARCHAR}, #{recordId,jdbcType=INTEGER}, 
+      #{knowledge,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="org.shek.smartLearning.pojo.Test" useGeneratedKeys="true">
+    insert into test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="question != null">
+        question,
+      </if>
+      <if test="answer != null">
+        answer,
+      </if>
+      <if test="confusion1 != null">
+        confusion1,
+      </if>
+      <if test="confusion2 != null">
+        confusion2,
+      </if>
+      <if test="confusion3 != null">
+        confusion3,
+      </if>
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="knowledge != null">
+        knowledge,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="question != null">
+        #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion1 != null">
+        #{confusion1,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion2 != null">
+        #{confusion2,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion3 != null">
+        #{confusion3,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="knowledge != null">
+        #{knowledge,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.shek.smartLearning.pojo.Test">
+    update test
+    <set>
+      <if test="question != null">
+        question = #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="answer != null">
+        answer = #{answer,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion1 != null">
+        confusion1 = #{confusion1,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion2 != null">
+        confusion2 = #{confusion2,jdbcType=VARCHAR},
+      </if>
+      <if test="confusion3 != null">
+        confusion3 = #{confusion3,jdbcType=VARCHAR},
+      </if>
+      <if test="recordId != null">
+        record_id = #{recordId,jdbcType=INTEGER},
+      </if>
+      <if test="knowledge != null">
+        knowledge = #{knowledge,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.shek.smartLearning.pojo.Test">
+    update test
+    set question = #{question,jdbcType=VARCHAR},
+      answer = #{answer,jdbcType=VARCHAR},
+      confusion1 = #{confusion1,jdbcType=VARCHAR},
+      confusion2 = #{confusion2,jdbcType=VARCHAR},
+      confusion3 = #{confusion3,jdbcType=VARCHAR},
+      record_id = #{recordId,jdbcType=INTEGER},
+      knowledge = #{knowledge,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

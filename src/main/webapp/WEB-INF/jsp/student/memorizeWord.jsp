@@ -55,7 +55,7 @@
             //因为是POST 需要设置消息头
             xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //执行访问，传递参数
-            xmlHttp.send("results=" + results + "&questions=" + JSON.stringify(questions) + "&subjectName=英文单词");
+            xmlHttp.send("results=" + results + "&questions=" + JSON.stringify(questions));
         }
 
         function checkResult(){
